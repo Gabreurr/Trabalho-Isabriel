@@ -1,0 +1,325 @@
+  /* Reset e base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Segoe UI", sans-serif;
+    background: white;
+    color: black;
+  }
+
+  .navbar {
+    background: rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%; /* 100% do body/viewport */
+    z-index: 9999;
+    padding: 10px 60px;
+    transition: background 0.3s ease;
+    background: linear-gradient(175deg, #fc4875, #f17b2b);
+  
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #000;
+    font-family: Arial, sans-serif;
+  }
+
+  .logo img {
+    height: 50px;
+    object-fit: contain;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    line-height: 1.1;
+  }
+
+  .logo-text strong {
+    font-size: 28px;
+    letter-spacing: 3px;
+  }
+
+  .logo-text span {
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  /* Menu alinhado à direita */
+  .menu ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu ul li a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px 18px;
+    color: #000;
+
+    border-radius: 8px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+
+  .menu ul li a:hover {
+    background-color: #000;
+    color: #f2709c;
+    border-color: #f2709c;
+  }
+
+  /* Botão para alternar tema */
+  .theme-toggle {
+    width: 25px;
+    height: 25px;
+    background-color: #ddd;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
+
+  .filtros {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.filtros h1 {
+  font-size: 24px;
+  color: #e50914;
+  margin-top: 60px;  /* Alinha o título FILMES abaixo da navbar */
+}
+  
+
+/* Estilo do dropdown */
+.dropdown {
+  position: relative; /* Deixa o dropdown na posição normal, abaixo do filtro */
+  display: inline-block;
+  margin-top: 60px; /* Coloca o espaço necessário para a navbar */
+}
+
+
+
+/* Botão de filtro */
+.dropbtn {
+  background-color: gray;
+  color: white;
+  padding: 13px;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilo do conteúdo do dropdown */
+.dropdown-content {
+  display: none; /* Começa invisível */
+  position: absolute; /* Será posicionado abaixo do botão */
+  top: 100%;  /* Faz o conteúdo descer abaixo do botão */
+  left: 0;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 9998; /* Certifique-se de que o dropdown está abaixo da navbar */
+}
+
+/* Mostrar o conteúdo do dropdown ao passar o mouse */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Estilo dos links dentro do dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Efeito de hover nos links */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Estilo do submenu */
+.submenu-content {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #f1f1f1;
+  min-width: 140px;
+  z-index: 9997;
+}
+
+/* Mostrar submenu ao passar o mouse */
+.submenu:hover .submenu-content {
+  display: block;
+}
+  /* Cards estilo pôster */
+  .cards-section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 cards por linha */
+    gap: 20px;
+    padding: 20px 0 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .card {
+    width: 100%;
+    aspect-ratio: 150 / 220; /* mantém proporção dos cards */
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  /* Responsividade */
+  @media (max-width: 1024px) {
+    .cards-section {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cards-section {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      aspect-ratio: 120 / 180;
+    }
+
+    .filtros {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 20px 20px 10px;
+    }
+  }
+
+  .logo img {
+    height: 70px;
+    width: auto;
+  }
+
+  /* Submenu lateral dentro do dropdown */
+  .submenu {
+    position: relative;
+  }
+
+  .submenu span {
+    display: block;
+    padding: 10px 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    background-color: #fff;
+    color: black;
+    font-weight: normal;
+  }
+
+  .submenu-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #f0f0f0;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .submenu-content a {
+    padding: 10px 14px;
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
+
+  .submenu:hover .submenu-content {
+    display: block;
+  }
+
+  .dropdown-content a:hover,
+  .submenu-content a:hover,
+  .submenu span:hover {
+    background-color: #ddd;
+  }
+
+  .footer {
+    background: linear-gradient(175deg, #fc4875, #f17b2b);
+    padding: 30px;
+    color: #000;
+    font-family: Arial, sans-serif;
+  }
+
+  .footer-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo img {
+    max-height: 80px;
+  }
+
+  .footer-text h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .footer-text p {
+    margin: 5px 0 10px;
+  }
+
+  .social-links a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+
+  .social-links a:hover {
+    color: #ffffff;
+  }
+
+  .social-links i {
+    font-size: 1.2rem;
+  }
